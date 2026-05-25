@@ -6,14 +6,13 @@ const App = () => {
   const [list, setList] = useState([]);
   const [editId, setEditId] = useState(null);
 
-  // Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setUser({ ...user, [name]: value });
   };
 
-  // Submit
+
   const handelSubmit = (e) => {
     e.preventDefault();
     if (editId) {
@@ -57,7 +56,6 @@ const App = () => {
     localStorage.setItem("users", JSON.stringify(newList));
   }
 
-  // Edit
   const handleEdit = (id) => {
 
     let data = list.find((item) => item.id === id);
@@ -67,7 +65,7 @@ const App = () => {
     setEditId(id);
   }
 
-  // Get Local Storage Data
+  
   useEffect(() => {
 
     const oldData = JSON.parse(localStorage.getItem("users"));
